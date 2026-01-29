@@ -1,15 +1,21 @@
 <div>
     <mat-card>
         <mat-toolbar color="primary">Login Page</mat-toolbar>
-        <form class="example-form">
+        <form  (submit)="onSubmit($event)" class="example-form" >
             <mat-form-field >
-                <input matInput placeholder="Username">
+                <input type="text" [formField]="loginForm.name"  matInput placeholder="Username">
+
+                @if (loginForm.name().touched() && loginForm.name().errors().length > 0){ <!-- El touched es para que muestre el  error si el usuario hizo clic en ese campo-->
+                <p class="text-sm text-red-400 font-medium flex items-center gap-1" >
+                        @for(error of loginForm.name().errors(); track $index){
+                            <span>{{error.message}}</span>}
+                </p>}
             </mat-form-field>
 
-             <mat-form-field >
-                <input matInput type="password" placeholder="Password">
+             <mat-form-field>
+                <input matInput type="password" [formField]="loginForm.password" placeholder="Password">
             </mat-form-field>
               <button matButton="filled">Basic</button>
         </form>  
     </mat-card>
-</div>
+</div>  
