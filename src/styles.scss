@@ -1,17 +1,11 @@
-
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
 html {
   height: 100%;
   @include mat.theme((
     color: (
-      primary: mat.$rose-palette,
-      tertiary: mat.$red-palette,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
     ),
     typography: Roboto,
     density: 0,
@@ -19,20 +13,46 @@ html {
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
   color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
   margin: 0;
   height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
-/* You can add global styles to this file, and also import other style files */
+
+// Modern global styles
+* {
+  box-sizing: border-box;
+}
+
+mat-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+mat-form-field {
+  margin-bottom: 16px;
+}
+
+button[matButton] {
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+mat-toolbar {
+  border-radius: 16px 16px 0 0;
+}
+
+mat-icon{
+    -webkit-user-select: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    overflow: hidden;
+}

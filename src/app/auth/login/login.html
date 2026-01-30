@@ -1,12 +1,12 @@
-<div>
+<div class="login-container">
     <mat-card>
-        <mat-toolbar color="primary">Login Page</mat-toolbar>
+        <mat-toolbar color="primary" class="toolbar-center"><mat-icon class="jenkins-icon" fontSet="fa-brands" fontIcon="fa-jenkins"></mat-icon></mat-toolbar>
         <form  (submit)="onSubmit($event)" class="example-form" >
             <mat-form-field >
                 <input type="text" [formField]="loginForm.name"  matInput placeholder="Username">
 
                 @if (loginForm.name().touched() && loginForm.name().errors().length > 0){ <!-- El touched es para que muestre el  error si el usuario hizo clic en ese campo-->
-                <p class="text-sm text-red-400 font-medium flex items-center gap-1" >
+                <p >
                         @for(error of loginForm.name().errors(); track $index){
                             <span>{{error.message}}</span>}
                 </p>}
@@ -14,8 +14,14 @@
 
              <mat-form-field>
                 <input matInput type="password" [formField]="loginForm.password" placeholder="Password">
+                @if (loginForm.password().touched() && loginForm.password().errors().length > 0){
+                    <p>
+                         @for(error of loginForm.password().errors(); track $index){
+                            <span>{{error.message}}</span>}
+                    </p>
+                }
             </mat-form-field>
-              <button matButton="filled">Basic</button>
-        </form>  
+              <button matButton="filled">Login</button>
+        </form>
     </mat-card>
 </div>  
