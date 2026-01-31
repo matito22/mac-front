@@ -1,53 +1,81 @@
-// Modern login page styles
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: inherit; // Inherits the gradient from body
 }
 
-mat-card {
+.login-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   padding: 32px;
-  text-align: center;
 }
 
-mat-toolbar {
-  margin-bottom: 24px;
-  height: 120px; // Adjust height to accommodate larger icon
-}
-
-.centered-icon {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 48px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-button {
-  margin-top: 16px;
-  align-self: center;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-
-.toolbar-center {
+.login-toolbar {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 140px; // ajustá el alto del toolbar si querés
 }
 
-.jenkins-icon {
-  font-size: 120px;   // 🔥 tamaño del ícono aumentado
-  width: auto;       // ajustado para el nuevo tamaño
-  height: auto;
+.login-icon {
+  font-size: 110px;   // 👈 ACÁ controlás el tamaño
+  width: 110px;
+  height: 110px;
+  line-height: 110px;
+}
+/* formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-field {
+  width: 100%;
+}
+
+/* 🔑 FIX icono mostrar/ocultar password (solo este campo) */
+.password-field {
+  .mat-mdc-form-field-icon-suffix {
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-mdc-icon-button {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  .mat-mdc-icon-button mat-icon {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.login-button {
+  margin-top: 16px;
+  align-self: center;
+}
+
+
+
+/* Estilos para mensajes de error debajo de los inputs */
+.login-field p,
+.password-field p {
+  margin: 4px 0 0 0;   // un poquito de espacio desde el input
+  font-size: 0.875rem; // tamaño pequeño y legible
+  color: #f44336;      // rojo Material
+  line-height: 1.2;
+}
+
+.login-field p span,
+.password-field p span {
+  display: block;      // cada error en su propia línea
 }

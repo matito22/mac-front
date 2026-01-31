@@ -1,8 +1,8 @@
 <div class="login-container">
-    <mat-card>
-        <mat-toolbar color="primary" class="toolbar-center"><mat-icon class="jenkins-icon" fontSet="fa-brands" fontIcon="fa-jenkins"></mat-icon></mat-toolbar>
-        <form  (submit)="onSubmit($event)" class="example-form" >
-            <mat-form-field >
+    <mat-card class="login-card">
+        <mat-toolbar color="primary" class="toolbar-center login-toolbar"><mat-icon class="jenkins-icon login-icon" fontSet="fa-brands" fontIcon="fa-jenkins"></mat-icon></mat-toolbar>
+        <form  (submit)="onSubmit($event)" class="login-form" >
+            <mat-form-field class="login-field">
                 <input type="text" [formField]="loginForm.name"  matInput placeholder="Username">
 
                 @if (loginForm.name().touched() && loginForm.name().errors().length > 0){ <!-- El touched es para que muestre el  error si el usuario hizo clic en ese campo-->
@@ -12,16 +12,30 @@
                 </p>}
             </mat-form-field>
 
-             <mat-form-field>
-                <input matInput type="password" [formField]="loginForm.password" placeholder="Password">
+             <mat-form-field class="password-field">
+                <input matInput  [type]="hide() ? 'password' : 'text'" [formField]="loginForm.password" placeholder="Password">
                 @if (loginForm.password().touched() && loginForm.password().errors().length > 0){
                     <p>
+                        <!-- Si hay errores, muestro un mensaje de error , se usa for de angular para iterar sobre los errores-->
                          @for(error of loginForm.password().errors(); track $index){
-                            <span>{{error.message}}</span>}
+                            <span>{{error.message}}</span>
+                        }
                     </p>
                 }
+                <!-- Botón para ocultar la contraseña -->
+                 <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="clickEvent($event)"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide()"
+                    >
+                    <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                 </button>
             </mat-form-field>
-              <button matButton="filled">Login</button>
+              <button matButton="filled" class="login-button">Login</button>
+
+              
         </form>
     </mat-card>
 </div>  
