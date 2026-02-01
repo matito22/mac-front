@@ -55,8 +55,7 @@ export default class Login {
 
     this.loginService.login(loginDto).subscribe({
   next: (res) => {
-    localStorage.setItem('token', res.access_token);
-    console.log("Usuario logueado, token guardado en localStorage");
+    console.log("Usuario logueado, token en cookie");
     this.router.navigate(['/dashboard']);
   },
   error: (err) => {

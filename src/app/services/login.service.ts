@@ -17,16 +17,12 @@ export class LoginService {
 
   //LLamamos al login del backend
   login(loginDto: LoginDto) {
-     return this.http.post<{access_token: string}>(`${this.apiURL}/login`, loginDto);
+     return this.http.post(`${this.apiURL}/login`, loginDto,{withCredentials:true});
     }
     
-  //Obtenemos el token de la sesion
-  getAuthToken() {
-    return localStorage.getItem('token') || '';
-    }
     //Llamamos al endpoint de perfil del backend
   getProfile() {
-    return this.http.get<User>(`${this.apiURL}/profile`);
+    return this.http.get<User>(`${this.apiURL}/profile`,{withCredentials:true});
   }
 
   
