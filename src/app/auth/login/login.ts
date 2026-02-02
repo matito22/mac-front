@@ -12,6 +12,7 @@ import { Router } from '@angular/router';//Importamos la clase Router de angular
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
+
 @Component({
   selector: 'app-login',//identificador component
   standalone:true,
@@ -29,23 +30,22 @@ export default class Login {
     loginModel = signal({
     name: '',
     password: '',
-  });
-  //Creamos un objeto de tipo signal que contendrá el estado del campo de contraseña
-  hide = signal(true);
-  isLoading = false;
+    });
+    //Creamos un objeto de tipo signal que contendrá el estado del campo de contraseña
+    hide = signal(true);
 
-  loginForm = form(this.loginModel,(path)=>{
-    //REQUERIMIENTOS PARA NAME
-    required(path.name,{message:'The user was not entered'});
-    minLength(path.name,5,{message:'The name must be longer than 5 characters'});
-    
-    //REQUERIMIENTOS PARA PASSWORD
-    required(path.password,{message:'The password was not entered'});
-    minLength(path.password,8,{message:'The key must contain more than 8 characters'})
+    loginForm = form(this.loginModel,(path)=>{
+      //REQUERIMIENTOS PARA NAME
+      required(path.name,{message:'The user was not entered'});
+      minLength(path.name,5,{message:'The name must be longer than 5 characters'});
+      
+      //REQUERIMIENTOS PARA PASSWORD
+      required(path.password,{message:'The password was not entered'});
+      minLength(path.password,8,{message:'The key must contain more than 8 characters'})
 
-    
+      
 
-  });
+    });
 
 
   onSubmit(event: Event) {
@@ -54,14 +54,14 @@ export default class Login {
     const loginDto = new LoginDto(name, password);
 
     this.loginService.login(loginDto).subscribe({
-  next: (res) => {
-    console.log("Usuario logueado, token en cookie");
-    this.router.navigate(['/dashboard']);
-  },
-  error: (err) => {
-    console.error(err);
-  }
-});
+    next: (res) => {
+      console.log("Usuario logueado, token en cookie");
+      this.router.navigate(['/dashboard']);
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
   //Llamamos al endpoint de perfil del backend para probar si el usuario logueado es correcto
     this.loginService.getProfile().subscribe((user)=>{
       console.log('Usuario logueado',user);
@@ -73,4 +73,6 @@ export default class Login {
     this.hide.set(!this.hide());//Cambiamos el estado del campo de contraseña
     event.stopPropagation();//Evitamos que se dispare el evento click del botón
   }
+
+  
 }

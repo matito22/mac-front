@@ -1,4 +1,83 @@
-/* Estilos simples para Dashboard */
-.dashboard-root {
-  padding: 16px;
+.dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background-color: #B9CDDA; // color header
+  z-index: 1000;
+  padding: 0 20px;
+
+  .logo {
+    height: 40px;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  button {
+    background-color: #8EAF9D;
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 4px;
+    &:hover {
+      background-color: #6B7D7D;
+    }
+  }
+}
+
+.dashboard-content {
+  margin-top: 150px; // deja espacio por el header fijo
+  padding: 20px;
+  background-color: #D7DAE5; // fondo general
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .dashboard-card {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #A6D8D4; // color de la card
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background-color: #8EAF9D; // hover color card
+      color: #FFFFFF;
+    }
+
+    &:hover mat-icon {
+      color: #FFFFFF;
+    }
+
+    mat-card-title {
+      font-weight: 600;
+      color: #6B7D7D;
+      margin-bottom: 5px;
+      transition: color 0.2s ease;
+    }
+
+    &:hover mat-card-title {
+      color: #FFFFFF;
+    }
+  }
+
+
+
+
+
 }

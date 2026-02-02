@@ -1,3 +1,4 @@
+
 :host {
   display: block;
   min-height: 100vh;
@@ -23,12 +24,6 @@
   height: 140px; // ajustá el alto del toolbar si querés
 }
 
-.login-icon {
-  font-size: 110px;   // 👈 ACÁ controlás el tamaño
-  width: 110px;
-  height: 110px;
-  line-height: 110px;
-}
 /* formulario */
 .login-form {
   display: flex;

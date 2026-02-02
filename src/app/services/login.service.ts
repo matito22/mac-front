@@ -26,5 +26,10 @@ export class LoginService {
   }
 
   
+  logout(){
+    return this.http.post(`${this.apiURL}/logout`,{},{withCredentials:true});
+  }
+
+  
 
 }

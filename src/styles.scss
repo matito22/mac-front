@@ -1,23 +1,15 @@
 @use '@angular/material' as mat;
 
-html {
-  height: 100%;
-  @include mat.theme((
-    color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+
+.dashboard-header mat-icon.dashboard-logo {
+  font-size: 70px;
+  width: 110px;
+  height: auto;
 }
 
-body {
-  color-scheme: light;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-  margin: 0;
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
+
+.login-card mat-icon.jenkins-icon {
+  font-size: 100px;
+  width: 110px;
+  height: auto;
 }
