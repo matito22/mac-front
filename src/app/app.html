@@ -1,1 +1,17 @@
+  <mat-toolbar color="primary" class="dashboard-header">
+    <div class="brand">
+    <mat-icon
+      class="dashboard-logo"
+      fontSet="fa-brands"
+      fontIcon="fa-jenkins">
+    </mat-icon>
+    <h1>MacDany's</h1>
+    </div>
+    <span class="spacer"></span>
+
+    <button mat-button color="accent" (click)="clickLogout($event)">
+      Logout
+    </button>
+  </mat-toolbar>
+  
 <router-outlet></router-outlet>

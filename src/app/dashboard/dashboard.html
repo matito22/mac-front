@@ -1,33 +1,25 @@
-<mat-toolbar color="primary" class="dashboard-header">
-  <mat-icon class="dashboard-logo" fontSet="fa-brands" fontIcon="fa-jenkins"></mat-icon>
-  <span class="spacer"></span>
-  <button mat-button color="accent" (click)="clickLogout($event)">
-    Logout
-  </button>
-</mat-toolbar>
+<div class="dashboard-container">
+  <div class="dashboard-content">
+    <div class="grid-container">
+      <mat-card class="dashboard-card" routerLink="/rent">
+        <mat-card-title>View rentals</mat-card-title>
+        <mat-icon>home</mat-icon>
+      </mat-card>
 
-<div class="dashboard-content">
-  <div class="grid-container">
-    <mat-card class="dashboard-card" routerLink="/alquileres">
-      <mat-card-title>Ver Alquileres</mat-card-title>
-      <mat-icon>home</mat-icon>
-    </mat-card>
+      <mat-card class="dashboard-card" routerLink="/usuarios">
+        <mat-card-title>View Users</mat-card-title>
+        <mat-icon>people</mat-icon>
+      </mat-card>
 
-    <mat-card class="dashboard-card" routerLink="/usuarios">
-      <mat-card-title>Ver Usuarios</mat-card-title>
-      <mat-icon>people</mat-icon>
-    </mat-card>
+      <mat-card class="dashboard-card" routerLink="/productos">
+        <mat-card-title>View products</mat-card-title>
+        <mat-icon>shopping_cart</mat-icon>
+      </mat-card>
 
-    <mat-card class="dashboard-card" routerLink="/pedidos">
-      <mat-card-title>Ver Pedidos</mat-card-title>
-      <mat-icon>shopping_cart</mat-icon>
-    </mat-card>
-
-    <mat-card class="dashboard-card" routerLink="/reportes">
-      <mat-card-title>Reportes</mat-card-title>
-      <mat-icon>bar_chart</mat-icon>
-    </mat-card>
-    
-    <!-- Agregá más cards según tus necesidades -->
+      <mat-card class="dashboard-card" routerLink="/clientes">
+        <mat-card-title>View customers</mat-card-title>
+        <mat-icon>bar_chart</mat-icon>
+      </mat-card>
+    </div>
   </div>
 </div>

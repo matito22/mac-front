@@ -63,7 +63,7 @@ export default class Login {
     }
   });
   //Llamamos al endpoint de perfil del backend para probar si el usuario logueado es correcto
-    this.loginService.getProfile().subscribe((user)=>{
+   this.loginService.getProfile().subscribe((user)=>{
       console.log('Usuario logueado',user);
     });
   }

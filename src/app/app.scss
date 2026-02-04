@@ -1,0 +1,90 @@
+
+
+.dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(185, 205, 218, 0.35),
+    rgba(185, 205, 218, 0.15)
+  );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.45);
+
+  z-index: 1000;
+}
+
+.dashboard-logo {
+  font-size: 42px;
+  color: rgba(47, 93, 93, 0.9);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap:1px;
+  cursor: pointer ;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+
+  color: rgba(31, 61, 61, 0.9);
+
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+.dashboard-header:hover .brand h1 {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+}
+
+.dashboard-header:hover .dashboard-logo {
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.dashboard-header button {
+  background: rgba(142, 175, 157, 82%);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+
+  border-radius: 10px;
+  padding: 8px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.dashboard-header button:hover {
+  background: rgba(142, 175, 157, 0.55);
+  transform: translateY(-2px);
+}
