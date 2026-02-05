@@ -1,15 +1,29 @@
-<div class="dashboard-container">
-  <div class="dashboard-content">
-    <h2>Rentals</h2>
-    <div class="grid-container">
-      <mat-card class="dashboard-card" *ngFor="let rent of rents()">
-        <mat-card-title>Rent ID: {{ rent.idRent }}</mat-card-title>
-        <p><strong>Customer:</strong> {{ rent.customer.name }}</p>
-        <p><strong>Delivery Date:</strong> {{ rent.deliveryDate }}</p>
-        <p><strong>Event Address:</strong> {{ rent.eventAddress}}</p>
-        <p><strong>State:</strong> {{ rent.state}}</p>
-        <p><strong>Total Amount:</strong> {{ rent.totalAmount }}</p>
-      </mat-card>
-    </div>
-  </div>
-</div>
+<table class="table responsive my-custom-table">
+  <thead>
+    <tr class="table-secondary">
+      <th scope="col">idRent</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Delivery Date</th>
+      <th scope="col">Withdrawal Date</th>
+      <th scope="col">Rental Days</th>
+      <th scope="col">Event Address</th>
+      <th scope="col">State</th>
+      <th scope="col">Total Amount</th>
+      <th scope="col">Last Modification Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rent of rents()">
+      <td>{{rent.idRent}}</td>
+      <td>{{rent.customer.name}}</td>
+      <td>{{rent.deliveryDate | date:'dd/MM/yyyy-HH:mm'}}</td>
+      <td>{{rent.withdrawalDate | date:'dd/MM/yyyy-HH:mm'}}</td>
+      <td>{{rent.rentalDays}}</td>
+      <td>{{rent.eventAddress}}</td>
+      <td>{{rent.state}}</td>
+      <td>{{rent.totalAmount}}</td>
+      <td>{{rent.lastModificationDate | date:'dd/MM/yyyy-HH:mm'}}</td>
+
+    </tr>
+  </tbody>
+</table>

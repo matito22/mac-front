@@ -1,12 +1,14 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { DashboardService } from '../services/dashboard.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { RentModel } from '../models/rent.model';
 
 @Component({
   selector: 'app-rent',
+  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [CommonModule, RouterModule, MatCardModule, MatIconModule],
   templateUrl: './rent.html',
@@ -18,7 +20,7 @@ export class Rent implements OnInit {
   constructor(private dashboardService:DashboardService) {
   }
 
-  rents = signal<any[]>([]);
+  rents = signal<RentModel[]>([]);
 
   
   ngOnInit() {

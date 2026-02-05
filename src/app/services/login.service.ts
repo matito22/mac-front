@@ -3,8 +3,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { LoginDto } from '../models/login-dto.model';
-import { User } from '../models/user.model';
+
 import { environment } from '../../environment';
+import { UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class LoginService {
     
     //Llamamos al endpoint de perfil del backend
   getProfile() {
-    return this.http.get<User>(`${this.apiURL}/profile`,{withCredentials:true});
+    return this.http.get<any>(`${this.apiURL}/profile`,{withCredentials:true});
   }
 
   

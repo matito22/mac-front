@@ -71,6 +71,8 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          
+      
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
@@ -79,13 +81,15 @@
             "development": {
               "buildTarget": "mac-front:build:development"
             }
+            
           },
           "defaultConfiguration": "development"
+
         },
         "test": {
           "builder": "@angular/build:unit-test"
         }
-      }
+        
     }
   }
-}
+}}
