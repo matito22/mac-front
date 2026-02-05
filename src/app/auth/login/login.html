@@ -11,8 +11,8 @@
     <div class="card-body">
       <form
         class="login-form"
-        (submit)="onSubmit($event)"
-        novalidate
+        (ngSubmit)="login()"
+        
       >
 
         <!-- Username -->
@@ -47,9 +47,9 @@
 
           <!-- Toggle password -->
           <button
-            type="button"
+            type="submit"
             class="btn btn-sm btn-outline-secondary"
-            (click)="clickEvent($event)"
+            
           >
             <i
               class="fa-solid"

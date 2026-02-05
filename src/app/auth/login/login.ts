@@ -10,13 +10,15 @@ import { LoginService } from '../../services/login.service';
 import { LoginDto } from '../../models/login-dto.model';
 import { Router } from '@angular/router';//Importamos la clase Router de angular
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { switchMap } from "rxjs";
+import { FormsModule } from "@angular/forms";
 
 
 
 @Component({
   selector: 'app-login',//identificador component
   standalone:true,
-  imports: [CommonModule, FormField,MatToolbarModule,MatInputModule,MatCardModule, MatIconModule, MatButtonModule,MatProgressSpinnerModule],
+  imports: [CommonModule, FormField,MatToolbarModule,MatInputModule,MatCardModule, MatIconModule, MatButtonModule,MatProgressSpinnerModule,FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
@@ -48,32 +50,24 @@ export default class Login {
     });
 
 
-  onSubmit(event: Event) {
-    event.preventDefault();
-    const { name, password } = this.loginModel();
-    const loginDto = new LoginDto(name, password);
+ login() {
+ 
+  const { name, password } = this.loginModel();
+  const loginDto = new LoginDto(name, password);
 
-    this.loginService.login(loginDto).subscribe({
-      next: (res) => {
-        console.log("Usuario logueado, token en cookie");
-        
-        // Llamamos al endpoint de perfil del backend DESPUÉS del login exitoso
-        this.loginService.getProfile().subscribe({
-          next: (user) => {
-            console.log('Usuario logueado', user);
-            this.router.navigate(['/dashboard']);
-          },
-          error: (err) => {
-            console.error('Error al obtener perfil:', err);
-            this.router.navigate(['/dashboard']);
-          }
-        });
-      },
-      error: (err) => {
-        console.error('Error en login:', err);
-      }
-    });
-  }
+  this.loginService.login(loginDto).pipe(
+    switchMap(() => this.loginService.getProfile())
+  ).subscribe({
+    next: (user) => {
+      console.log('Usuario logueado', user);
+      this.router.navigate(['/dashboard']);
+    },
+    error: (err) => {
+      console.error('Error en login o perfil:', err);
+    }
+  });
+}
+
 
  //Función para ocultar la contraseña
   clickEvent(event: MouseEvent) {

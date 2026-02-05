@@ -1,29 +1,51 @@
-<table class="table responsive my-custom-table">
-  <thead>
-    <tr class="table-secondary">
-      <th scope="col">idRent</th>
-      <th scope="col">Customer</th>
-      <th scope="col">Delivery Date</th>
-      <th scope="col">Withdrawal Date</th>
-      <th scope="col">Rental Days</th>
-      <th scope="col">Event Address</th>
-      <th scope="col">State</th>
-      <th scope="col">Total Amount</th>
-      <th scope="col">Last Modification Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let rent of rents()">
-      <td>{{rent.idRent}}</td>
-      <td>{{rent.customer.name}}</td>
-      <td>{{rent.deliveryDate | date:'dd/MM/yyyy-HH:mm'}}</td>
-      <td>{{rent.withdrawalDate | date:'dd/MM/yyyy-HH:mm'}}</td>
-      <td>{{rent.rentalDays}}</td>
-      <td>{{rent.eventAddress}}</td>
-      <td>{{rent.state}}</td>
-      <td>{{rent.totalAmount}}</td>
-      <td>{{rent.lastModificationDate | date:'dd/MM/yyyy-HH:mm'}}</td>
+<!-- Top navigation horizontal -->
+<div class="top-nav">
+  <ul class="list-group list-group-horizontal list-group-flush">
+    <li class="list-group-item">
+      <a routerLink="newRent" routerLinkActive="active">New Rent</a>
+    </li>
+    <li class="list-group-item">
+      <a routerLink="users" routerLinkActive="active">👥 User</a>
+    </li>
+    <li class="list-group-item">
+      <a routerLink="products" routerLinkActive="active">🛒 Product</a>
+    </li>
+    <li class="list-group-item">
+      <a routerLink="customers" routerLinkActive="active">👤 Customer</a>
+    </li>
+  </ul>
+</div>
 
-    </tr>
-  </tbody>
-</table>
+<!-- Contenedor principal -->
+<div class="content-area">
+  <table class="table responsive my-custom-table">
+    <thead>
+      <tr class="table-secondary">
+        <th scope="col">idRent</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Delivery Date</th>
+        <th scope="col">Withdrawal Date</th>
+        <th scope="col">Rental Days</th>
+        <th scope="col">Event Address</th>
+        <th scope="col">State</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">Last Modification Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rent of rents()">
+        <td>{{rent.idRent}}</td>
+        <td>{{rent.customer.name}}</td>
+        <td>{{rent.deliveryDate | date:'dd/MM/yyyy-HH:mm'}}</td>
+        <td>{{rent.withdrawalDate | date:'dd/MM/yyyy-HH:mm'}}</td>
+        <td>{{rent.rentalDays}}</td>
+        <td>{{rent.eventAddress}}</td>
+        <td>{{rent.state}}</td>
+        <td>{{rent.totalAmount}}</td>
+        <td>{{rent.lastModificationDate | date:'dd/MM/yyyy-HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <router-outlet></router-outlet>

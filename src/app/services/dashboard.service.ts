@@ -8,6 +8,7 @@ import { environment } from '../../environment';
 import { UserModel } from '../models/user.model';
 import { ProductModel } from '../models/product.model';
 import { CustomerModel } from '../models/customer.model';
+import { RentModel } from '../models/rent.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +43,9 @@ export class DashboardService {
   }
 
 
-
+  newRent(rentDto:RentModel){
+    return this.http.post<RentModel>(`${this.rentURL}/newRent`,rentDto,{withCredentials:true});
+  }
   
 
 }

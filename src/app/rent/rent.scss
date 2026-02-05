@@ -1,25 +1,81 @@
-.my-custom-table {
+/* ---------------------------
+   Top navigation horizontal
+---------------------------- */
+.top-nav {
+  position: fixed;
+  top: 80px;           // debajo del header
+  left: 220px;         // espacio del sidebar
+  width: calc(100% - 220px);
+  height: 70px;
+  background-color: #7A9B7A;
+  border-bottom: 1px ridge #A2B9A2;
+  border-top: 1px ridge #A2B9A2;
+  display: flex;
+  align-items: center;
+  z-index: 900;
+  padding-left: 16px;
 
-  /* Encabezado */
-  --bs-table-bg-state: #D8D8D8;      /* Fondo de estado activo / encabezado */
-  --bs-table-color-state: #000000;   /* Color del texto del encabezado */
-  
-  /* Colores de hover y activo (opcional) */
-  --bs-table-hover-bg: rgba(216, 216, 216, 0.1); /* Hover sobre fila */
-  --bs-table-active-bg: rgb(0, 0, 0); /* Fila activa */
-  
-  /* Otros estilos Bootstrap predeterminados */
-  --bs-table-border-color: var(--bs-border-color);
-  --bs-table-accent-bg: transparent;
+  .list-group {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
+  .list-group-item {
+    border: none;
+    background: transparent;
+  }
 
+  a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0 12px;
+  }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.active {
+    border-bottom: 2px solid white;
+  }
 }
 
+/* ---------------------------
+   Contenedor principal
+---------------------------- */
+.content-area {
+  
+  margin-top: 56px;  // 80 header + 56 top-nav
+}
 
+/* ---------------------------
+   Tabla
+---------------------------- */
+.my-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  --bs-table-bg-state: #D8D8D8;
+  --bs-table-color-state: #000000;
+  --bs-table-hover-bg: rgba(216, 216, 216, 0.1);
+  --bs-table-active-bg: rgb(0, 0, 0);
+  --bs-table-border-color: var(--bs-border-color);
+  --bs-table-accent-bg: transparent;
+}
 
 tbody, td, tfoot, th, thead, tr {
-    border-color:#030303;
-    border-style: groove;
-    border-top: 0px;
+  border-color:#030303;
+  border-style: groove;
+  border-top: 0px;
+}
+
+.my-custom-table tbody tr:hover {
+  background-color: rgba(216, 216, 216, 0.1);
+}
+
+.my-custom-table thead tr {
+  background-color: var(--bs-table-bg-state);
+  color: var(--bs-table-color-state);
 }

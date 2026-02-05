@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { DashboardService } from '../services/dashboard.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { RentModel } from '../models/rent.model';
+import { form } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +19,5 @@ import { RouterModule } from '@angular/router';
 export default class Dashboard {
   constructor(private dashboardService:DashboardService) {}
 
-
-  
 
 }

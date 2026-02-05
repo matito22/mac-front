@@ -1,0 +1,28 @@
+<!-- Body -->
+    <div class="card-body">
+      <form
+        class="newRent-form"
+        (ngSubmit)="newRent()"
+        
+      >
+
+        <!-- Delivery Date -->
+        <div class="mb-1 newRent-field">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Delivery Date"
+            [formField]="newRentForm.deliveryDate"
+          />
+        </div>
+       
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="btn btn-primary w-100 login-button"
+        >
+          Crear
+        </button>
+
+      </form>
+    </div>
