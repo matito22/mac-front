@@ -1,25 +1,41 @@
-<div class="dashboard-container">
-  <div class="dashboard-content">
-    <div class="grid-container">
-      <mat-card class="dashboard-card" routerLink="/rent">
-        <mat-card-title>View rentals</mat-card-title>
-        <mat-icon>home</mat-icon>
-      </mat-card>
+<div class="dashboard-layout">
 
-      <mat-card class="dashboard-card" routerLink="/usuarios">
-        <mat-card-title>View Users</mat-card-title>
-        <mat-icon>people</mat-icon>
-      </mat-card>
-
-      <mat-card class="dashboard-card" routerLink="/productos">
-        <mat-card-title>View products</mat-card-title>
-        <mat-icon>shopping_cart</mat-icon>
-      </mat-card>
-
-      <mat-card class="dashboard-card" routerLink="/clientes">
-        <mat-card-title>View customers</mat-card-title>
-        <mat-icon>bar_chart</mat-icon>
-      </mat-card>
-    </div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <a routerLink="rent">🏠 Rent</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="users">👥 User</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="products">🛒 Product</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="customers">👤 Customer</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="external-spending">💸 External Spending</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="pay">💳 Pay</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="stock">📦 Stock</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="stock-movement">🚚 Stock Movement</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="supplier">🏢 Supplier</a>
+      </li>
+    </ul>
   </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>

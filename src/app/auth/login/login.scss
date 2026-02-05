@@ -1,76 +1,142 @@
-
-:host {
-  display: block;
-  min-height: 100vh;
-}
-
+/* Contenedor principal para centrar vertical y horizontalmente y fondo borroso */
 .login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  position: fixed;  /* fixed para que ocupe toda la pantalla y quede fijo */
+  inset: 0;         /* top:0; bottom:0; left:0; right:0; */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden;
+  background: transparent;
+
+  &::before {
+    content: '';
+    position: fixed;  /* fixed para que esté detrás de todo */
+    inset: 0;
+    overflow: hidden;
+    background: url('/assets/banquetBlur.jpg')no-repeat center center / cover;
+
+    z-index: -1;
+    pointer-events: none; /* que no interfiera con clicks */
+  }
 }
 
+
+/* Tarjeta de login */
 .login-card {
-  width: 100%;
-  max-width: 420px;
-  padding: 32px;
+  width: 380px;
+  padding: 0;
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(166, 216, 212, 0.28),
+    rgba(166, 216, 212, 0.12)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+
+
+  
 }
 
 .login-toolbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 140px; // ajustá el alto del toolbar si querés
+  height: 140px;
+  background-color: rgba(142, 175, 157, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* formulario */
+/* Icono grande y blanco */
+.login-toolbar i.fa-brands.fa-jenkins {
+  font-size: 6rem;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Formulario */
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
 }
 
-.login-field {
+/* Campo input ancho completo */
+.login-field,
+.password-field {
+  position: relative;
   width: 100%;
 }
 
-/* 🔑 FIX icono mostrar/ocultar password (solo este campo) */
 .password-field {
-  .mat-mdc-form-field-icon-suffix {
-    display: flex;
-    align-items: center;
+  position: relative;
+
+  input.form-control {
+    padding-right: 2.5rem; /* espacio para el botón toggle */
   }
 
-  .mat-mdc-icon-button {
-    width: 40px;
-    height: 40px;
-    padding: 8px;
+  button {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    background: rgba(142, 175, 157, 0.82);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    padding: 0.25rem 0.4rem;
+    transition: background 0.25s ease;
+    z-index: 2; /* arriba del input */
   }
 
-  .mat-mdc-icon-button mat-icon {
-    font-size: 24px;
-    line-height: 24px;
+  button:hover {
+    background: rgba(142, 175, 157, 0.55);
   }
 }
 
-.login-button {
-  margin-top: 16px;
-  align-self: center;
-}
 
-
-
-/* Estilos para mensajes de error debajo de los inputs */
-.login-field p,
-.password-field p {
-  margin: 4px 0 0 0;   // un poquito de espacio desde el input
-  font-size: 0.875rem; // tamaño pequeño y legible
-  color: #f44336;      // rojo Material
+  .error-messages-container {
+  min-height: 1.25rem; /* Altura fija, ajusta según tamaño de mensajes */
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
   line-height: 1.2;
+  color: #f44336; /* rojo Material */
+  position: relative; /* evita que interfiera con posición absoluta */
+  z-index: 1;
 }
 
-.login-field p span,
-.password-field p span {
-  display: block;      // cada error en su propia línea
+
+/* Mensajes de error debajo del input */
+.text-danger {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: #f44336; /* rojo material */
+}
+
+/* Botón login */
+.login-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background: rgba(142, 175, 157, 0.82);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: rgba(142, 175, 157, 0.55);
+  transform: translateY(-2px);
 }

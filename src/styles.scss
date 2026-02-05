@@ -1,21 +1,4 @@
-@use '@angular/material' as mat;
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-
-.dashboard-header mat-icon.dashboard-logo {
-  font-size: 70px;
-  width: 80px;
-  height: auto;
-}
-
-
-.login-card mat-icon.jenkins-icon {
-  font-size: 100px;
-  width: 110px;
-  height: auto;
+.login-toolbar i.fa-brands.fa-jenkins {
+  font-size: 6rem !important;
+  color: white !important;
 }

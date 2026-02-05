@@ -54,17 +54,24 @@ export default class Login {
     const loginDto = new LoginDto(name, password);
 
     this.loginService.login(loginDto).subscribe({
-    next: (res) => {
-      console.log("Usuario logueado, token en cookie");
-      this.router.navigate(['/dashboard']);
-    },
-    error: (err) => {
-      console.error(err);
-    }
-  });
-  //Llamamos al endpoint de perfil del backend para probar si el usuario logueado es correcto
-   this.loginService.getProfile().subscribe((user)=>{
-      console.log('Usuario logueado',user);
+      next: (res) => {
+        console.log("Usuario logueado, token en cookie");
+        
+        // Llamamos al endpoint de perfil del backend DESPUÉS del login exitoso
+        this.loginService.getProfile().subscribe({
+          next: (user) => {
+            console.log('Usuario logueado', user);
+            this.router.navigate(['/dashboard']);
+          },
+          error: (err) => {
+            console.error('Error al obtener perfil:', err);
+            this.router.navigate(['/dashboard']);
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Error en login:', err);
+      }
     });
   }
 

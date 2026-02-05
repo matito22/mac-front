@@ -2,7 +2,7 @@
   <div class="dashboard-content">
     <h2>Rentals</h2>
     <div class="grid-container">
-      <mat-card class="dashboard-card" *ngFor="let rent of rents">
+      <mat-card class="dashboard-card" *ngFor="let rent of rents()">
         <mat-card-title>Rent ID: {{ rent.idRent }}</mat-card-title>
         <p><strong>Customer:</strong> {{ rent.customer.name }}</p>
         <p><strong>Delivery Date:</strong> {{ rent.deliveryDate }}</p>

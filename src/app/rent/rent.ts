@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { DashboardService } from '../services/dashboard.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -18,8 +18,7 @@ export class Rent implements OnInit {
   constructor(private dashboardService:DashboardService) {
   }
 
-    rents: any[] = [];
-
+  rents = signal<any[]>([]);
 
   
   ngOnInit() {
@@ -27,7 +26,7 @@ export class Rent implements OnInit {
     this.dashboardService.getRents().subscribe({
       next: data => {
         console.log('Datos recibidos de getRents:', data);
-        this.rents = data;
+        this.rents.set(data);
       },
       error: err => {
         console.error('Error en getRents:', err);

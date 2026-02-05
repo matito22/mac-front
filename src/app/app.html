@@ -1,17 +1,14 @@
-  <mat-toolbar color="primary" class="dashboard-header">
-    <div class="brand">
-    <mat-icon
-      class="dashboard-logo"
-      fontSet="fa-brands"
-      fontIcon="fa-jenkins">
-    </mat-icon>
+<nav *ngIf="showHeader" class="navbar navbar-expand dashboard-header">
+  <div class="brand">
+    <i class="fa-brands fa-jenkins dashboard-logo"></i>
     <h1>MacDany's</h1>
-    </div>
-    <span class="spacer"></span>
+  </div>
 
-    <button mat-button color="accent" (click)="clickLogout($event)">
+  <div class="ms-auto">
+    <button (click)="clickLogout($event)">
       Logout
     </button>
-  </mat-toolbar>
-  
+  </div>
+</nav>
+
 <router-outlet></router-outlet>

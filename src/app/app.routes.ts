@@ -7,8 +7,11 @@ export const routes: Routes = [
 
     {path:'',redirectTo:'/login',pathMatch:'full'},//Redirigo a login si pones el local host
     { path: 'login',component:Login},
-    { path: 'dashboard', component: Dashboard },
-    { path: 'rent', component: Rent },
+    { path: 'dashboard', component: Dashboard,children:[
+        { path: 'rent', component: Rent },
+        
+    ] }
+ 
 
     
 
