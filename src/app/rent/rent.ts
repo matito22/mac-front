@@ -8,7 +8,6 @@ import { RentModel } from '../models/rent.model';
 
 @Component({
   selector: 'app-rent',
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [CommonModule, RouterModule, MatCardModule, MatIconModule],
   templateUrl: './rent.html',

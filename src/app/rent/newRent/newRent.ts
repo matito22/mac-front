@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-rent',
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [CommonModule,FormsModule,FormField],
   templateUrl: './newRent.html',

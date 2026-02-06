@@ -9,6 +9,7 @@ import { UserModel } from '../models/user.model';
 import { ProductModel } from '../models/product.model';
 import { CustomerModel } from '../models/customer.model';
 import { RentModel } from '../models/rent.model';
+import { Rent } from '../rent/rent';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class DashboardService {
 
   // Rent Methods
   getRents() {
-    return this.http.get<any[]>(`${this.rentURL}/allRents`, { withCredentials: true });
+    return this.http.get<RentModel[]>(`${this.rentURL}/allRents`, { withCredentials: true });
   }
 
   // User Methods
