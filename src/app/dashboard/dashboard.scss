@@ -1,53 +1,81 @@
+/* ---------------------------
+   Layout general
+---------------------------- */
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
-
-  .sidebar {
-    width: 220px;
-    background-color: #7A9B7A;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .list-group-flush {
-    border-radius: 0;
-    /* border: solid; */
-    border-bottom: 1px ridge #A2B9A2;
-    border-top:1px ridge #A2B9A2;
+  background-color: #f4f6f5;
 }
 
-    .list-group-item {
-      background-color: transparent;
-      border: none;
-      padding: 1rem 1rem;
-      border: 1px ridge #A2B9A2;
-      cursor: pointer;
-         &:hover {
-          background: linear-gradient(
-            135deg,
-            rgba(142, 175, 157, 0.562),
-            rgba(142, 175, 157, 0.562)
-          );
-          color: #7A9B7A;
-          border-radius: 8px;
-        }
+/* ---------------------------
+   Sidebar moderno
+---------------------------- */
+.sidebar {
+  position: fixed;
+  top: 80px; /* debajo del header */
+  left: 0;
 
-      a {
-        color: #c2c2c2;
-        text-decoration: none;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 18px;
-      }
-    }
+  width: 220px;
+  height: calc(100vh - 80px);
+
+  background: linear-gradient(180deg, #6f8f7a, #8fb3a0);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-shadow: 4px 0 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Lista */
+.sidebar .list-group-flush {
+  border: none;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Item */
+.sidebar .list-group-item {
+  background: transparent;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(4px);
   }
 
-  .main-content {
-    flex: 1;
-    background-color: #c2c2c2;
-    padding-top: 80px;
-
+  a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 16px;
   }
+}
+
+/* Estado activo opcional */
+.sidebar .list-group-item.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------------------------
+   Main content
+---------------------------- */
+.main-content {
+  margin-left: 220px;
+  flex: 1;
+
+  background-color: #f4f6f5;
+  padding-top: 80px; /* header */
+  min-height: 100vh;
 }

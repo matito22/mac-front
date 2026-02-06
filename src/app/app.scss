@@ -1,78 +1,97 @@
-/* Header principal */
+/* ---------------------------
+   Header principal (moderno)
+---------------------------- */
 .dashboard-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
-  padding: 0 28px;
+  padding: 0 32px;
 
   display: flex;
   align-items: center;
 
-  background-color:#7A9B7A;
+  background: linear-gradient(135deg, #6f8f7a, #8fb3a0);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 
-  border-bottom: 2px groove #A2B9A2;
   z-index: 1000;
+}
+
+/* ---------------------------
+   Brand (logo + texto)
+---------------------------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
 /* Logo (Font Awesome) */
 .dashboard-logo {
-  font-size: 70px;
-  color:#D8D8D8;
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 56px;
+  color: #f1f1f1;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Brand (logo + texto) */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 1px;
-  cursor: pointer;
-}
-
+/* Texto de marca */
 .brand h1 {
   margin: 0;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
-  letter-spacing: 0.6px;
-  color:#D8D8D8;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  letter-spacing: 0.8px;
+  color: #f5f5f5;
   font-family: fantasy;
+
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Efectos al pasar el mouse sobre el header */
-.dashboard-header:hover .brand h1 {
-     color: rgba(142, 175, 157, 0.82);
+/* Hover del brand */
+.brand:hover h1 {
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.dashboard-header:hover .dashboard-logo {
-  color: rgba(142, 175, 157, 0.82);
-  transform: scale(1.08);
+.brand:hover .dashboard-logo {
+  color: #ffffff;
+  transform: scale(1.1) rotate(-2deg);
 }
 
-/* Spacer para separar elementos si fuera necesario */
+/* ---------------------------
+   Spacer
+---------------------------- */
 .spacer {
   flex: 1 1 auto;
 }
 
-/* Botón Logout */
+/* ---------------------------
+   Botón Logout (moderno)
+---------------------------- */
 .dashboard-header button {
-  background-color:#D8D8D8;
-  cursor: pointer;
-
-  color: #7A9B7A;
+  background: rgba(255, 255, 255, 0.85);
+  color: #6f8f7a;
   font-weight: 600;
 
-  border-radius: 10px;
-  padding: 8px 20px;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 22px;
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
 
-
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Hover del botón */
+/* Hover botón */
 .dashboard-header button:hover {
-  background: rgba(142, 175, 157, 0.55);
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Active botón */
+.dashboard-header button:active {
+  transform: scale(0.97);
 }

@@ -18,11 +18,8 @@ export const routes: Routes = [
         canActivate: [AuthGuard],       // protege el padre
         canActivateChild: [AuthGuard],  // protege los hijos
         children: [
-            { path: 'rent', component: Rent ,
-                children: [
-                    { path: 'newRent', component: newRent },
-                ]
-            },
+            { path: 'rent', component: Rent },
+            { path: 'rent/newRent', component: newRent },//new rent es hermano de rent para que pueda desaparecer el html de rent y aparezca el formulario de newRent
             { path: 'users', component: User },
             { path: 'products', component: Product },
             { path: 'customers', component: Customer },

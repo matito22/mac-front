@@ -3,7 +3,6 @@
       <form
         class="newRent-form"
         (ngSubmit)="newRent()"
-        
       >
 
         <!-- Delivery Date -->
@@ -15,6 +14,18 @@
             [formField]="newRentForm.deliveryDate"
           />
         </div>
+
+          <!-- Delivery Date -->
+        <div class="mb-1 newRent-field">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Delivery Date"
+            [formField]="newRentForm.deliveryDate"
+          />
+        </div>
+
+
        
         <!-- Submit -->
         <button

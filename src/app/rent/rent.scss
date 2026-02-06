@@ -1,44 +1,52 @@
 /* ---------------------------
-   Top navigation horizontal
+   Top navigation horizontal (moderna)
 ---------------------------- */
 .top-nav {
   position: fixed;
-  top: 80px;           // debajo del header
-  left: 220px;         // espacio del sidebar
+  top: 80px;
+  left: 220px;
   width: calc(100% - 220px);
-  height: 70px;
-  background-color: #7A9B7A;
-  border-bottom: 1px ridge #A2B9A2;
-  border-top: 1px ridge #A2B9A2;
+  height: 64px;
+
+  background: linear-gradient(135deg, #6f8f7a, #8fb3a0);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
   display: flex;
   align-items: center;
   z-index: 900;
-  padding-left: 16px;
+  padding: 0 24px;
+  border-radius: 0 0 12px 12px;
 
   .list-group {
-    height: 100%;
     display: flex;
     align-items: center;
+    gap: 8px;
+    height: 100%;
   }
 
   .list-group-item {
-    border: none;
     background: transparent;
-  }
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    cursor: pointer;
 
-  a {
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 0 12px;
-  }
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
 
-  a:hover {
-    text-decoration: underline;
-  }
-
-  a.active {
-    border-bottom: 2px solid white;
+    a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 16px;
+    }
   }
 }
 
@@ -46,36 +54,47 @@
    Contenedor principal
 ---------------------------- */
 .content-area {
-  
-  margin-top: 56px;  // 80 header + 56 top-nav
+  margin-top: 72px;
+  padding: 24px;
+  background-color: #f4f6f5;
+  min-height: 100vh;
 }
 
 /* ---------------------------
-   Tabla
+   Tabla moderna
 ---------------------------- */
 .my-custom-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 
-  --bs-table-bg-state: #D8D8D8;
-  --bs-table-color-state: #000000;
-  --bs-table-hover-bg: rgba(216, 216, 216, 0.1);
-  --bs-table-active-bg: rgb(0, 0, 0);
-  --bs-table-border-color: var(--bs-border-color);
-  --bs-table-accent-bg: transparent;
-}
-
-tbody, td, tfoot, th, thead, tr {
-  border-color:#030303;
-  border-style: groove;
-  border-top: 0px;
-}
-
-.my-custom-table tbody tr:hover {
-  background-color: rgba(216, 216, 216, 0.1);
+  --bs-table-hover-bg: rgba(143, 179, 160, 0.15);
 }
 
 .my-custom-table thead tr {
-  background-color: var(--bs-table-bg-state);
-  color: var(--bs-table-color-state);
+  background: linear-gradient(135deg, #7a9b7a, #9db8a0);
+  color: #ffffff;
+}
+
+.my-custom-table th,
+.my-custom-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 15px;
+}
+
+.my-custom-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.my-custom-table tbody tr:hover {
+  background-color: rgba(143, 179, 160, 0.12);
+}
+
+.my-custom-table tbody tr:last-child td {
+  border-bottom: none;
 }

@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule,FormsModule,FormField],
   templateUrl: './newRent.html',
-  styleUrl: './newRent.scss',
+  styleUrl: './newRent.scss'
 })
 export class newRent {
 

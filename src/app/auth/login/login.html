@@ -46,10 +46,10 @@
           />
 
           <!-- Toggle password -->
-          <button
-            type="submit"
+           <button
+            type="button"
             class="btn btn-sm btn-outline-secondary"
-            
+            (click)="clickEvent($event)"
           >
             <i
               class="fa-solid"
@@ -57,6 +57,7 @@
               [class.fa-eye-slash]="hide()"
             ></i>
           </button>
+
         </div>
 
 
