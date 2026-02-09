@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { LoginDto } from '../models/login-dto.model';
 
 import { environment } from '../../environment';
@@ -16,6 +16,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
+   currentUser = signal<UserModel | null>(null);
+
   //LLamamos al login del backend
   login(loginDto: LoginDto) {
      return this.http.post(`${this.apiURL}/login`, loginDto,{withCredentials:true});
@@ -23,7 +25,11 @@ export class LoginService {
     
     //Llamamos al endpoint de perfil del backend
   getProfile() {
-    return this.http.get<any>(`${this.apiURL}/profile`,{withCredentials:true});
+    return this.http.get<any>(`${this.apiURL}/profile`,{withCredentials:true}).pipe(
+      tap(user => {
+        this.currentUser.set(user);
+      })
+    );
   }
 
   

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';//Importamos la clase Router de angular
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { switchMap } from "rxjs";
 import { FormsModule } from "@angular/forms";
+import { UserModel } from "../../models/user.model";
 
 
 
@@ -36,6 +37,7 @@ export default class Login {
     //Creamos un objeto de tipo signal que contendrá el estado del campo de contraseña
     hide = signal(true);
 
+
     loginForm = form(this.loginModel,(path)=>{
       //REQUERIMIENTOS PARA NAME
       required(path.name,{message:'The user was not entered'});
@@ -59,7 +61,7 @@ export default class Login {
     switchMap(() => this.loginService.getProfile())
   ).subscribe({
     next: (user) => {
-      console.log('Usuario logueado', user);
+  
       this.router.navigate(['/dashboard']);
     },
     error: (err) => {

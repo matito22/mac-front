@@ -10,6 +10,8 @@ export interface RentModel {
   rentalDays: number;
   withdrawalDate: string;
   lastModificationDate: string;
+  deliveryTime: string;
+  withdrawalTime: string;
   
 
 }

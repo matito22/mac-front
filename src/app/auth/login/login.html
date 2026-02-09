@@ -1,87 +1,80 @@
-<div class="container min-vh-100 d-flex justify-content-center align-items-center login-container">
+<div class="login-container">
 
-  <div class="card shadow login-card">
+  <mat-card class="login-card">
 
     <!-- Header -->
-    <div class="card-header text-center login-toolbar">
-      <i class="fa-brands fa-jenkins text-white fs-1"></i>
-    </div>
+    <mat-card-header class="login-toolbar">
+      <i class="fa-brands fa-jenkins"></i>
+    </mat-card-header>
 
     <!-- Body -->
-    <div class="card-body">
+    <mat-card-content>
+
       <form
         class="login-form"
         (ngSubmit)="login()"
-        
       >
 
         <!-- Username -->
-        <div class="mb-1 login-field">
+        <mat-form-field appearance="fill" class="full-width">
           <input
-            type="text"
-            class="form-control"
+            matInput
             placeholder="Username"
             [formField]="loginForm.name"
           />
-        </div>
+        </mat-form-field>
 
-        <!-- Mensajes de error para username fuera del login-field -->
-        <div class="error-messages-container mb-3">
+        <!-- Errors username -->
+        <div class="error-messages-container">
           @if (loginForm.name().touched() && loginForm.name().errors().length > 0) {
-            <div class="text-danger">
-              @for (error of loginForm.name().errors(); track $index) {
-                <div>{{ error.message }}</div>
-              }
-            </div>
+            @for (error of loginForm.name().errors(); track $index) {
+              <div class="text-danger">{{ error.message }}</div>
+            }
           }
         </div>
 
         <!-- Password -->
-        <div class="mb-1 password-field">
+        <mat-form-field appearance="fill" class="full-width password-field">
           <input
-            class="form-control"
+            matInput
             [type]="hide() ? 'password' : 'text'"
             placeholder="Password"
             [formField]="loginForm.password"
           />
 
-          <!-- Toggle password -->
-           <button
+          <button
+            mat-icon-button
+            matSuffix
             type="button"
-            class="btn btn-sm btn-outline-secondary"
             (click)="clickEvent($event)"
           >
-            <i
-              class="fa-solid"
-              [class.fa-eye]="!hide()"
-              [class.fa-eye-slash]="hide()"
-            ></i>
+            <mat-icon>
+              {{ hide() ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
           </button>
+        </mat-form-field>
 
-        </div>
-
-
-        <!-- Mensajes de error para password fuera del password-field -->
-        <div class="error-messages-container mb-3">
+        <!-- Errors password -->
+        <div class="error-messages-container">
           @if (loginForm.password().touched() && loginForm.password().errors().length > 0) {
-            <div class="text-danger">
-              @for (error of loginForm.password().errors(); track $index) {
-                <div>{{ error.message }}</div>
-              }
-            </div>
+            @for (error of loginForm.password().errors(); track $index) {
+              <div class="text-danger">{{ error.message }}</div>
+            }
           }
         </div>
 
-        
         <!-- Submit -->
         <button
+          mat-raised-button
           type="submit"
-          class="btn btn-primary w-100 login-button"
+          class="login-button"
         >
           Login
         </button>
 
       </form>
-    </div>
-  </div>
+
+    </mat-card-content>
+  </mat-card>
+
 </div>

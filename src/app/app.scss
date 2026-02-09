@@ -1,5 +1,5 @@
 /* ---------------------------
-   Header principal (moderno)
+   Header principal
 ---------------------------- */
 .dashboard-header {
   position: fixed;
@@ -20,7 +20,7 @@
 }
 
 /* ---------------------------
-   Brand (logo + texto)
+   Brand
 ---------------------------- */
 .brand {
   display: flex;
@@ -29,14 +29,12 @@
   cursor: pointer;
 }
 
-/* Logo (Font Awesome) */
 .dashboard-logo {
   font-size: 56px;
   color: #f1f1f1;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Texto de marca */
 .brand h1 {
   margin: 0;
   font-size: 36px;
@@ -48,7 +46,6 @@
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Hover del brand */
 .brand:hover h1 {
   color: #ffffff;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -67,31 +64,26 @@
 }
 
 /* ---------------------------
-   Botón Logout (moderno)
+   Botón Logout (Material)
 ---------------------------- */
-.dashboard-header button {
+.logout-btn {
   background: rgba(255, 255, 255, 0.85);
   color: #6f8f7a;
   font-weight: 600;
-
-  border: none;
+  cursor: pointer;
   border-radius: 12px;
   padding: 10px 22px;
 
-  cursor: pointer;
   transition: all 0.25s ease;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Hover botón */
-.dashboard-header button:hover {
-  background: #ffffff;
+.logout-btn:hover {
+  background: #8fb3a021;
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
-/* Active botón */
-.dashboard-header button:active {
+.logout-btn:active {
   transform: scale(0.97);
 }

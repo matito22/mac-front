@@ -1,41 +1,55 @@
-<div class="dashboard-layout">
+<mat-sidenav-container class="dashboard-layout">
 
   <!-- Sidebar -->
-  <div class="sidebar">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <a routerLink="rent">🏠 Rent</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="users">👥 User</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="products">🛒 Product</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="customers">👤 Customer</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="external-spending">💸 External Spending</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="pay">💳 Pay</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="stock">📦 Stock</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="stock-movement">🚚 Stock Movement</a>
-      </li>
-      <li class="list-group-item">
-        <a routerLink="supplier">🏢 Supplier</a>
-      </li>
-    </ul>
-  </div>
+  <mat-sidenav
+    mode="side"
+    opened
+    class="sidebar"
+  >
+    <mat-nav-list>
+
+      <a mat-list-item routerLink="rent" routerLinkActive="active">
+        🏠 <span>Rent</span>
+      </a>
+
+      <a mat-list-item routerLink="users" routerLinkActive="active">
+        👥 <span>User</span>
+      </a>
+
+      <a mat-list-item routerLink="products" routerLinkActive="active">
+        🛒 <span>Product</span>
+      </a>
+
+      <a mat-list-item routerLink="customers" routerLinkActive="active">
+        👤 <span>Customer</span>
+      </a>
+
+      <a mat-list-item routerLink="external-spending" routerLinkActive="active">
+        💸 <span>External Spending</span>
+      </a>
+
+      <a mat-list-item routerLink="pay" routerLinkActive="active">
+        💳 <span>Pay</span>
+      </a>
+
+      <a mat-list-item routerLink="stock" routerLinkActive="active">
+        📦 <span>Stock</span>
+      </a>
+
+      <a mat-list-item routerLink="stock-movement" routerLinkActive="active">
+        🚚 <span>Stock Movement</span>
+      </a>
+
+      <a mat-list-item routerLink="supplier" routerLinkActive="active">
+        🏢 <span>Supplier</span>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
 
   <!-- Main content -->
-  <div class="main-content">
+  <mat-sidenav-content class="main-content">
     <router-outlet></router-outlet>
-  </div>
+  </mat-sidenav-content>
 
-</div>
+</mat-sidenav-container>

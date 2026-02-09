@@ -1,14 +1,19 @@
-<nav *ngIf="showHeader" class="navbar navbar-expand dashboard-header">
+<mat-toolbar *ngIf="showHeader" class="dashboard-header">
+
+  <!-- Brand -->
   <div class="brand">
     <i class="fa-brands fa-jenkins dashboard-logo"></i>
     <h1>MacDany's</h1>
   </div>
 
-  <div class="ms-auto">
-    <button (click)="clickLogout($event)">
-      Logout
-    </button>
-  </div>
-</nav>
+  <!-- Spacer -->
+  <span class="spacer"></span>
+
+  <!-- Logout -->
+  <button mat-button class="logout-btn" (click)="clickLogout($event)">
+    Logout
+  </button>
+
+</mat-toolbar>
 
 <router-outlet></router-outlet>

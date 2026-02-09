@@ -2,70 +2,69 @@
    Layout general
 ---------------------------- */
 .dashboard-layout {
-  display: flex;
   min-height: 100vh;
   background-color: #f4f6f5;
+  font-family: 'Roboto', sans-serif; /* fuente base para todo el contenido */
 }
 
 /* ---------------------------
-   Sidebar moderno
+   Sidebar
 ---------------------------- */
 .sidebar {
   position: fixed;
   top: 80px; /* debajo del header */
   left: 0;
-
   width: 220px;
   height: calc(100vh - 80px);
 
   background: linear-gradient(180deg, #6f8f7a, #8fb3a0);
   backdrop-filter: blur(6px);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
   box-shadow: 4px 0 14px rgba(0, 0, 0, 0.08);
+  border-right: none;
+
+  font-family: 'Inter', sans-serif; /* legible y moderna para sidebar */
 }
 
 /* Lista */
-.sidebar .list-group-flush {
-  border: none;
+mat-nav-list {
+  margin-top: 50px;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* Item */
-.sidebar .list-group-item {
-  background: transparent;
-  border: none;
-  padding: 12px 14px;
+/* Items */
+a.mat-list-item {
   border-radius: 12px;
-
-  cursor: pointer;
+  padding: 12px 14px;
+  color: #ffffff; /* Cambié el color por defecto a blanco */
+  font-family: 'Inter', sans-serif; /* consistente con sidebar */
+  font-weight: 400; /* normal para items no activos */
+  font-size: 16px;
   transition: all 0.25s ease;
+
+  span {
+    margin-left: 8px;
+    color: inherit; /* Asegura que el color heredado sea blanco */
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateX(4px);
   }
-
-  a {
-    color: #f1f1f1;
-    text-decoration: none;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 16px;
-  }
 }
 
-/* Estado activo opcional */
-.sidebar .list-group-item.active {
+/* Activo */
+a.mat-list-item.active {
   background: rgba(255, 255, 255, 0.3);
+  font-weight: 600; /* más destacado al estar activo */
+}
+
+/* Quitar ripple feo */
+a.mat-list-item .mat-ripple-element {
+  opacity: 0.1;
 }
 
 /* ---------------------------
@@ -73,9 +72,13 @@
 ---------------------------- */
 .main-content {
   margin-left: 220px;
-  flex: 1;
-
-  background-color: #f4f6f5;
-  padding-top: 80px; /* header */
+  padding-top: 80px;
   min-height: 100vh;
+  background-color: #f4f6f5;
+
+  font-family: 'Roboto', sans-serif; /* legible para textos largos y tablas */
+  font-size: 14px;
+  color: #333;
 }
+
+

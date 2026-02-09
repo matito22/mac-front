@@ -1,0 +1,90 @@
+.card-body {
+  background-color: #f4f6f5;
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.newRent-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Material form fields */
+::ng-deep .mat-mdc-form-field {
+  width: 100%;
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: #9db8a0;
+  }
+
+  &.mat-focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: #7a9b7a;
+      border-width: 2px;
+    }
+
+    .mat-mdc-floating-label {
+      color: #7a9b7a;
+    }
+  }
+
+  .mat-mdc-input-element {
+    color: #2f3e34;
+  }
+
+  .mat-mdc-floating-label {
+    color: #6b7f73;
+    font-weight: 500;
+  }
+}
+
+/* Autocomplete options */
+::ng-deep .mat-mdc-autocomplete-panel {
+  border-radius: 12px;
+  background-color: #f4f6f5;
+
+  .mat-mdc-option {
+    font-size: 0.95rem;
+
+    &:hover {
+      background-color: rgba(157, 184, 160, 0.25);
+    }
+
+    &.mdc-list-item--selected {
+      background-color: rgba(122, 155, 122, 0.3);
+    }
+  }
+}
+
+/* Datepicker toggle */
+::ng-deep .mat-datepicker-toggle {
+  color: #7a9b7a;
+}
+
+/* Submit button */
+button {
+  height: 48px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background-color: #7a9b7a;
+  color: #ffffff;
+  transition: all 0.25s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #6b8c6b;
+    box-shadow: 0 6px 18px rgba(122, 155, 122, 0.35);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    background-color: #9db8a0;
+    opacity: 0.6;
+  }
+}

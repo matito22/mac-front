@@ -1,39 +1,104 @@
 <!-- Body -->
-    <div class="card-body">
-      <form
-        class="newRent-form"
-        (ngSubmit)="newRent()"
-      >
+<div class="card-body">
+  <form class="newRent-form" (ngSubmit)="newRent()">
 
-        <!-- Delivery Date -->
-        <div class="mb-1 newRent-field">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Delivery Date"
-            [formField]="newRentForm.deliveryDate"
-          />
-        </div>
+    <!-- Customer search -->
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Search customer</mat-label>
+      <input
+        matInput
+        [formControl]="searchControl"
+        placeholder="Name or phone"
+        [matAutocomplete]="auto"
+      />
 
-          <!-- Delivery Date -->
-        <div class="mb-1 newRent-field">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Delivery Date"
-            [formField]="newRentForm.deliveryDate"
-          />
-        </div>
-
-
-       
-        <!-- Submit -->
-        <button
-          type="submit"
-          class="btn btn-primary w-100 login-button"
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let customer of filteredItems$ | async"
+          (click)="selectCustomer(customer)"
         >
-          Crear
-        </button>
+          {{ customer.name }} - {{ customer.phone }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
-      </form>
-    </div>
+    <!-- Delivery Date -->
+    <mat-form-field appearance="outline" class="w-100 mt-2">
+      <mat-label>Delivery Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="deliveryPicker"
+        [formField]="newRentForm.deliveryDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="deliveryPicker"></mat-datepicker-toggle>
+      <mat-datepicker #deliveryPicker></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="w-100 mt-2">
+      <mat-label>Delivery Time</mat-label>
+      <input matInput [matTimepicker]="deliveryTimePicker" [formField]="newRentForm.deliveryTime"/>
+      <mat-timepicker-toggle matIconSuffix [for]="deliveryTimePicker"></mat-timepicker-toggle>
+      <mat-timepicker #deliveryTimePicker></mat-timepicker>
+    </mat-form-field>
+
+
+    <!-- Withdrawal Date -->
+    <mat-form-field appearance="outline" class="w-100 mt-2">
+      <mat-label>Withdrawal Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="withdrawalPicker"
+        [formField]="newRentForm.withdrawalDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="withdrawalPicker"></mat-datepicker-toggle>
+      <mat-datepicker #withdrawalPicker></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="w-100 mt-2">
+      <mat-label>Withdrawal Time</mat-label>
+      <input matInput [matTimepicker]="withdrawalTimePicker" [formField]="newRentForm.withdrawalTime"/>
+      <mat-timepicker-toggle matIconSuffix [for]="withdrawalTimePicker"></mat-timepicker-toggle>
+      <mat-timepicker #withdrawalTimePicker></mat-timepicker>
+    </mat-form-field>
+
+
+    <!-- Event Address -->
+    <mat-form-field appearance="outline" class="w-100 mt-2">
+      <mat-label>Event Address</mat-label>
+      <input
+        matInput
+        type="text"
+        [formField]="newRentForm.eventAddress"
+      />
+    </mat-form-field>
+
+
+
+    <!-- Submit -->
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="w-100 mt-3"
+    >
+      Create
+    </button>
+
+    
+    <!-- Submit -->
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="returnRent()"
+      class="w-100 mt-3"
+    >
+      Return
+    </button>
+
+
+ 
+
+  </form>
+</div>
